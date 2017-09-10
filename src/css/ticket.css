@@ -1,0 +1,28 @@
+.ticket {
+  background-color: #fff;
+}
+.ticket:after {
+  content: '';
+  display: block;
+  clear: both;
+}
+
+.ticket__left {
+  float: left;
+  width: 20%;
+}
+
+.ticket__main {
+  float: left;
+  width: 80%;
+}
+.ticket__main:after {
+  content: '';
+  display: block;
+  clear: both;
+}
+
+.ticket__stops, .place-info {
+  float: left;
+  width: 33%;
+}
