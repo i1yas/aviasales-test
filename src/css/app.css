@@ -1,0 +1,9 @@
+@font-face {
+  font-family: 'OpenSans';
+  src: local('OpenSans'),
+    url('./OpenSans-Regular.ttf') format('truetype');
+}
+
+.App {
+  font-family: 'OpenSans', sans-serif;
+}
