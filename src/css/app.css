@@ -4,6 +4,12 @@
     url('./OpenSans-Regular.ttf') format('truetype');
 }
 
+body {
+  background-color: #f3f7fa;
+}
+
 .App {
+  margin: 0 auto;
+  max-width: 1000px;
   font-family: 'OpenSans', sans-serif;
 }
