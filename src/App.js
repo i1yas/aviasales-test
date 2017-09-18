@@ -7,8 +7,11 @@ class App extends Component {
     const { data } = this.props;
     return (
       <div className="App">
-        {data.tickets.map(ticket => (
-          <Ticket data={ticket} />
+        {data.tickets.map((ticket, index) => (
+          <Ticket
+            data={ticket}
+            key={index}
+          />
         ))}
       </div>
     );
