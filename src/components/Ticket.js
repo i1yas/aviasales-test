@@ -1,6 +1,16 @@
 import React from 'react';
 import '../css/ticket.css';
 
+const getStopWord = n => {
+  if(n === 1) {
+    return 'пересадка';
+  } else if(n < 5) {
+    return 'пересадки';
+  } else {
+    return 'пересадок';
+  }
+}
+
 const PlaceInfo = ({ data }) => {
   const { time, short_name, full_name, date } = data;
   return (
@@ -34,7 +44,7 @@ const Ticket = ({ data }) => {
         time: departure_time, short_name: origin,
         full_name: origin_name, date: departure_date
       }} />
-      <div className='ticket__stops'>Пересадок: {stops}</div>
+      <div className='ticket__stops'>{stops} {getStopWord(stops)}</div>
       <PlaceInfo data={{
         time: arrival_time, short_name: destination,
         full_name: destination_name, date: arrival_date 
