@@ -2,6 +2,21 @@ import React from 'react';
 import BuyButton from './BuyButton';
 import '../css/ticket.css';
 
+const formatPrice = price => {
+  const strPrice = String(price);
+
+  if(strPrice.length < 5) return strPrice;
+
+  const splitPoint = strPrice.length % 3;
+  const headPart = strPrice.slice(0, splitPoint);
+  const restPart = strPrice.slice(splitPoint);
+
+  const arrayOfRangs = restPart.match(/[0-9]{3}/g);
+  const formattedPrice = `${headPart}${headPart && ' '}${arrayOfRangs.join(' ')}`;
+
+  return formattedPrice;
+}
+
 const getStopWord = n => {
   if(n === 1) {
     return 'пересадка';
@@ -37,7 +52,7 @@ const Ticket = ({ data }) => {
         {carrier}
       </div>
       <BuyButton>
-        Купить за {price} Р
+        Купить за {formatPrice(price)}{'\u00A0'}Р
       </BuyButton>
     </div>
     <div className='ticket__main'>
