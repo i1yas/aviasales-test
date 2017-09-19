@@ -1,4 +1,5 @@
 import React from 'react';
+import BuyButton from './BuyButton';
 import '../css/ticket.css';
 
 const getStopWord = n => {
@@ -35,9 +36,9 @@ const Ticket = ({ data }) => {
       <div className='ticket__carrier'>
         {carrier}
       </div>
-      <button className='ticket__cta'>
+      <BuyButton>
         Купить за {price} Р
-      </button>
+      </BuyButton>
     </div>
     <div className='ticket__main'>
       <PlaceInfo data={{
