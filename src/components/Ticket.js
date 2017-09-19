@@ -1,6 +1,7 @@
 import React from 'react';
 import BuyButton from './BuyButton';
 import '../css/ticket.css';
+import airplaneIcon from '../airplane.svg';
 
 const formatPrice = price => {
   const strPrice = String(price);
@@ -60,7 +61,18 @@ const Ticket = ({ data }) => {
         time: departure_time, short_name: origin,
         full_name: origin_name, date: departure_date
       }} />
-      <div className='ticket__stops'>{stops} {getStopWord(stops)}</div>
+      <div className='ticket__stops'>
+        <div className='ticket__stops-sign'>
+          {stops} {getStopWord(stops)}
+        </div>
+        <div className='ticket__stops-bottom'>
+          <img
+            className='ticket__stops-airplane'
+            src={airplaneIcon}
+            alt=''
+          />
+        </div>
+      </div>
       <PlaceInfo data={{
         time: arrival_time, short_name: destination,
         full_name: destination_name, date: arrival_date 
