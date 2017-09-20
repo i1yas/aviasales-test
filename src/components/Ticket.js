@@ -3,6 +3,14 @@ import BuyButton from './BuyButton';
 import '../css/ticket.css';
 import airplaneIcon from '../airplane.svg';
 
+const formatTime = time => {
+  const [ hour, min ] = String(time).split(':')
+  
+  const formattedHour = hour < 10 ? '0' + hour : hour;
+  
+  return `${formattedHour}:${min}`;
+}
+
 const formatPrice = price => {
   const strPrice = String(price);
 
@@ -32,7 +40,7 @@ const PlaceInfo = ({ data }) => {
   const { time, short_name, full_name, date } = data;
   return (
   <div className='place-info'>
-    <div className='place-info__time'>{time}</div>
+    <div className='place-info__time'>{formatTime(time)}</div>
     <div className='place-info__name'>{short_name}, {full_name}</div>
     <div className='place-info__date'>{date}</div>
   </div>
