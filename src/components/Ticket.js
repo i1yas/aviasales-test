@@ -71,7 +71,11 @@ const Ticket = ({ data }) => {
       }} />
       <div className='ticket__stops'>
         <div className='ticket__stops-sign'>
-          {stops} {getStopWord(stops)}
+          {stops > 0 ?
+            stops + ' ' + getStopWord(stops)
+            :
+            ' '
+          }
         </div>
         <div className='ticket__stops-bottom'>
           <img

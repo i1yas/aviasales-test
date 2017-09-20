@@ -56,6 +56,7 @@
   border-bottom: 1px solid #d2d5d6;
   text-align: center;
   color: #8a9496;
+  min-height: 12px;
 }
 
 .ticket__stops-bottom {
