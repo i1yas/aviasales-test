@@ -2,6 +2,10 @@
   font-size: 32px;
 }
 
+.place-info__name {
+  font-weight: bold;
+}
+
 .ticket {
   padding-left: 20px;
   padding-right: 20px;

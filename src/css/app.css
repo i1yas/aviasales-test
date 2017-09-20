@@ -4,6 +4,13 @@
     url('./OpenSans-Regular.ttf') format('truetype');
 }
 
+@font-face {
+  font-family: 'OpenSans-SemiBold';
+  font-weight: bold;
+  src: local('OpenSans-SemiBold'),
+    url('./OpenSans-SemiBold.ttf') format('truetype');
+}
+
 body {
   background-color: #f3f7fa;
   font-size: 12px;
