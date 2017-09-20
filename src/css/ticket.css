@@ -45,9 +45,13 @@
   clear: both;
 }
 
-.ticket__stops, .place-info {
+.ticket__from, .ticket__to, .ticket__stops-section {
   float: left;
   width: 33%;
+}
+
+.ticket__to {
+  text-align: right;
 }
 
 .ticket__stops {

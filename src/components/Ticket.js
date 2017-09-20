@@ -16,6 +16,8 @@ const PlaceInfo = ({ data }) => {
   </div>
 )};
 
+
+
 const Ticket = ({ data }) => {
   const {
     origin, origin_name,
@@ -25,6 +27,25 @@ const Ticket = ({ data }) => {
     carrier, stops, price
   } = data;
   
+  const stopsSection = (
+    <div className='ticket__stops'>
+      <div className='ticket__stops-sign'>
+        {stops > 0 ?
+          stops + ' ' + formatStopWord(stops)
+          :
+          ' '
+        }
+      </div>
+      <div className='ticket__stops-bottom'>
+        <img
+          className='ticket__stops-airplane'
+          src={airplaneIcon}
+          alt=''
+        />
+      </div>
+    </div>
+  );
+
   const template = <div className='ticket'>
     <div className='ticket__left'>
       <div className='ticket__carrier'>
@@ -35,30 +56,21 @@ const Ticket = ({ data }) => {
       </BuyButton>
     </div>
     <div className='ticket__main'>
-      <PlaceInfo data={{
-        time: departure_time, short_name: origin,
-        full_name: origin_name, date: departure_date
-      }} />
-      <div className='ticket__stops'>
-        <div className='ticket__stops-sign'>
-          {stops > 0 ?
-            stops + ' ' + formatStopWord(stops)
-            :
-            ' '
-          }
-        </div>
-        <div className='ticket__stops-bottom'>
-          <img
-            className='ticket__stops-airplane'
-            src={airplaneIcon}
-            alt=''
-          />
-        </div>
+      <div className='ticket__from'>
+        <PlaceInfo data={{
+            time: departure_time, short_name: origin,
+            full_name: origin_name, date: departure_date
+          }}
+        />
       </div>
-      <PlaceInfo data={{
-        time: arrival_time, short_name: destination,
-        full_name: destination_name, date: arrival_date 
-      }} />
+      <div className='ticket__stops-section'>{stopsSection}</div>
+      <div className='ticket__to'>
+        <PlaceInfo data={{
+            time: arrival_time, short_name: destination,
+            full_name: destination_name, date: arrival_date 
+          }}
+        />
+      </div>
     </div>
   </div>
   
