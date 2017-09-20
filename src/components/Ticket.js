@@ -1,7 +1,10 @@
 import React from 'react';
+import moment from 'moment-with-locales-es6';
 import BuyButton from './BuyButton';
 import '../css/ticket.css';
 import airplaneIcon from '../airplane.svg';
+
+moment.locale('ru');
 
 const formatTime = time => {
   const [ hour, min ] = String(time).split(':')
@@ -9,6 +12,18 @@ const formatTime = time => {
   const formattedHour = hour < 10 ? '0' + hour : hour;
   
   return `${formattedHour}:${min}`;
+}
+
+const formatDate = date => {
+  const d = new Date(date);
+  const formattedArr = moment(d).format('llll').split(' ').slice(0, 4);
+  formattedArr[2] = formattedArr[2].slice(0, 3);
+
+  let day = formattedArr[0];
+  day = day.slice(0, 2);
+  day = ', ' + day.slice(0,1).toUpperCase() + day.slice(1);
+
+  return formattedArr.slice(1).join(' ') + day;
 }
 
 const formatPrice = price => {
@@ -42,7 +57,7 @@ const PlaceInfo = ({ data }) => {
   <div className='place-info'>
     <div className='place-info__time'>{formatTime(time)}</div>
     <div className='place-info__name'>{short_name}, {full_name}</div>
-    <div className='place-info__date'>{date}</div>
+    <div className='place-info__date'>{formatDate(date)}</div>
   </div>
 )};
 
