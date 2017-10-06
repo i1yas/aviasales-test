@@ -6,6 +6,8 @@ import {
   formatDate, formatPrice, formatTime, formatStopWord
 } from '../utils/ticketFormatters';
 
+import carrierImg from '../resources/logos/turkish-airlines.png';
+
 const PlaceInfo = ({ data }) => {
   const { time, short_name, full_name, date } = data;
   return (
@@ -48,12 +50,12 @@ const Ticket = ({ data }) => {
 
   const template = <div className='ticket'>
     <div className='ticket__left'>
-      <div className='ticket__carrier'>
-        {carrier}
+      <img src={carrierImg} className='ticket__carrier' />
+      <div className='ticket__button-container'>
+	      <BuyButton>
+	        Купить за {formatPrice(price)}{'\u00A0'}Р
+	      </BuyButton>
       </div>
-      <BuyButton>
-        Купить за {formatPrice(price)}{'\u00A0'}Р
-      </BuyButton>
     </div>
     <div className='ticket__main'>
       <div className='ticket__from'>

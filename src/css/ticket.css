@@ -30,6 +30,15 @@
   padding-right: 20px;
   float: left;
   width: 20%;
+  text-align: center;
+}
+
+.ticket__button-container > button {
+	width: 100%;
+}
+.ticket__carrier {
+	margin-bottom: 15px;
+	width: 125px;
 }
 
 .ticket__main {
