@@ -31,6 +31,7 @@
   float: left;
   width: 20%;
   text-align: center;
+  border-right: 1px solid #eceff1;
 }
 
 .ticket__button-container > button {
@@ -46,7 +47,6 @@
   float: left;
   width: 80%;
   color: #494949;
-  border-left: 1px solid #eceff1;
 }
 .ticket__main:after {
   content: '';

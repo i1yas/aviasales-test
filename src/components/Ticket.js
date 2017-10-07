@@ -18,8 +18,6 @@ const PlaceInfo = ({ data }) => {
   </div>
 )};
 
-
-
 const Ticket = ({ data }) => {
   const {
     origin, origin_name,

@@ -30,8 +30,9 @@ export const formatPrice = price => {
   const headPart = strPrice.slice(0, splitPoint);
   const restPart = strPrice.slice(splitPoint);
 
+  const nbsp = '\u00A0';
   const arrayOfRangs = restPart.match(/[0-9]{3}/g);
-  const formattedPrice = `${headPart}${headPart && ' '}${arrayOfRangs.join(' ')}`;
+  const formattedPrice = `${headPart}${headPart && nbsp}${arrayOfRangs.join(nbsp)}`;
 
   return formattedPrice;
 }
