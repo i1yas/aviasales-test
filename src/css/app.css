@@ -18,6 +18,23 @@ body {
 
 .App {
   margin: 0 auto;
-  max-width: 1000px;
+  width: 820px;
   font-family: 'OpenSans', sans-serif;
+}
+
+.App__left-side {
+	float: left;
+	width: 230px;
+}
+
+.App__main {
+	margin-left: 18px;
+	float: left;
+	width: 572px;
+}
+
+.white-block {
+  background-color: #fff;
+  border-radius: 5px;
+  box-shadow: 0px 5px 25px rgba(91,137,163,0.1);
 }

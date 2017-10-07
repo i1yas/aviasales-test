@@ -46,7 +46,7 @@ const Ticket = ({ data }) => {
     </div>
   );
 
-  const template = <div className='ticket'>
+  const template = <div className='ticket white-block'>
     <div className='ticket__left'>
       <img src={carrierImg} className='ticket__carrier' />
       <div className='ticket__button-container'>
