@@ -8,12 +8,13 @@ import {
 
 import carrierImg from '../resources/logos/turkish-airlines.png';
 
-const PlaceInfo = ({ data }) => {
+const PlaceInfo = ({ data, type }) => {
   const { time, short_name, full_name, date } = data;
+  const name = type === 'left' ? `${short_name}, ${full_name}` : `${full_name}, ${short_name}`;
   return (
   <div className='place-info'>
     <div className='place-info__time'>{formatTime(time)}</div>
-    <div className='place-info__name'>{short_name}, {full_name}</div>
+    <div className='place-info__name'>{name}</div>
     <div className='place-info__date'>{formatDate(date)}</div>
   </div>
 )};
@@ -61,6 +62,7 @@ const Ticket = ({ data }) => {
             time: departure_time, short_name: origin,
             full_name: origin_name, date: departure_date
           }}
+          type='left'
         />
       </div>
       <div className='ticket__stops-section'>{stopsSection}</div>
@@ -69,6 +71,7 @@ const Ticket = ({ data }) => {
             time: arrival_time, short_name: destination,
             full_name: destination_name, date: arrival_date 
           }}
+          type='right'
         />
       </div>
     </div>
