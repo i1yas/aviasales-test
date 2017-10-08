@@ -11,7 +11,7 @@ const AppTemplate = ({ tickets }) => {
 				{tickets.map((ticket, index) => (
 				  <Ticket
 				    data={ticket}
-				    key={index}
+				    key={Number(index)}
 				  />
 				))}
 			</div>

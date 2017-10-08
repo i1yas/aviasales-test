@@ -10,7 +10,7 @@ const Filter = (props) => {
 	return (
 		<div className='filter'>
 			{elements.map((el, ind) =>
-				<FilterElement text={el} ind />
+				<FilterElement text={el} key={ind} />
 			)}
 		</div>
 	)

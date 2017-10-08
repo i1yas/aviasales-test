@@ -48,7 +48,7 @@ const Ticket = ({ data }) => {
 
   const template = <div className='ticket white-block'>
     <div className='ticket__left'>
-      <img src={carrierImg} className='ticket__carrier' />
+      <img src={carrierImg} className='ticket__carrier' alt={carrier} />
       <div className='ticket__button-container'>
 	      <BuyButton>
 	        Купить за {formatPrice(price)}{'\u00A0'}Р
