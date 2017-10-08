@@ -1,4 +1,5 @@
 import React from 'react';
+import Filter from './Filter';
 import '../css/LeftBar.css';
 
 const LeftBar = (props) => {
@@ -8,8 +9,7 @@ const LeftBar = (props) => {
 				Количество пересадок
 			</p>
 
-			Все
-			Без персадок
+			<Filter />
 		</div>
 	)
 };
