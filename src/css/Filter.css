@@ -24,6 +24,12 @@
 .filter__input-checkbox {
 	display: none;
 }
+.filter__input-checkbox:not(:checked) + i {
+	background: none;
+}
+.filter__input-checkbox:checked + i {
+	background-color: #f2fcff;
+}
 
 .filter__element-text {
 	vertical-align: middle;
