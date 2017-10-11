@@ -3,7 +3,7 @@ import FilterElement from './FilterElement';
 import '../css/Filter.css';
 import { formatStopWord } from '../utils/ticketFormatters';
 
-const Filter = ({ filterList }) => {
+const Filter = ({ filterList, currentFilter }) => {
 	const elements = [];
 	for(let i = 0; i < 3; i++) {
 		elements.push({
@@ -24,6 +24,7 @@ const Filter = ({ filterList }) => {
 					data={el}
 					key={ind}
 					filterList={filterList}
+					checked={el.key === currentFilter}
 				/>
 			)}
 		</div>

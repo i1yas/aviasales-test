@@ -5,7 +5,7 @@ const checkboxStyle = {
 	backgroundImage: `url(${checkMark})`
 }
 
-const FilterElement = ({ data, ind, filterList }) => {
+const FilterElement = ({ data, ind, filterList, checked }) => {
 	const handleClick = data => {
 		filterList(data.key);
 	}
@@ -16,7 +16,7 @@ const FilterElement = ({ data, ind, filterList }) => {
 			className='filter__element'
 			onClick={handleClick.bind(this, data)}
 		>
-			<input type='checkbox' className='filter__input-checkbox' />
+			<input type='checkbox' className='filter__input-checkbox' checked={checked} />
 			<i className='filter__checkbox' style={checkboxStyle}></i>
 			<span className='filter__element-text'>{data.text}</span>
 		</label>

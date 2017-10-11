@@ -3,11 +3,14 @@ import Ticket from './components/Ticket';
 import LeftBar from './components/LeftBar';
 import './css/app.css';
 
-const AppTemplate = ({ tickets, filter }) => {
+const AppTemplate = ({ tickets, filter, currentFilter }) => {
 	return (
 		<div className='App'>
 			<div className='App__left-side'>
-				<LeftBar filter={filter} />
+				<LeftBar
+					filter={filter}
+					currentFilter={currentFilter}
+				/>
 			</div>
 			<div className='App__main'>
 				{tickets.map((ticket, index) => (
@@ -25,19 +28,23 @@ class App extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {
+			currentFilter: 'all',
 			tickets: props.data.tickets
 		}
 	}
 
 	filter(s) {
 		if(s === 'all') {
-			debugger
 			this.setState({
+				currentFilter: 'all',
 				tickets: this.props.data.tickets
 			})
 		} else {
 			this.setState((prevState, props) => {
-				return { tickets: props.data.tickets.filter(ticket => ticket.stops === s) };
+				return {
+					currentFilter: s,
+					tickets: props.data.tickets.filter(ticket => ticket.stops === s)
+				};
 			});
 		}
 	}
@@ -46,6 +53,7 @@ class App extends Component {
 		return <AppTemplate
 			tickets={this.state.tickets}
 			filter={this.filter.bind(this)}
+			currentFilter={this.state.currentFilter}
 		/>
 	}
 }
