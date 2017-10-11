@@ -32,7 +32,7 @@ const Ticket = ({ data }) => {
     <div className='ticket__stops'>
       <div className='ticket__stops-sign'>
         {stops > 0 ?
-          stops + ' ' + formatStopWord(stops)
+          formatStopWord(stops)
           :
           ' '
         }

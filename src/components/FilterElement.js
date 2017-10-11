@@ -5,12 +5,12 @@ const checkboxStyle = {
 	backgroundImage: `url(${checkMark})`
 }
 
-const FilterElement = ({ text, ind }) => {
+const FilterElement = ({ data, ind }) => {
 	return (
 		<label key={ind} className='filter__element'>
 			<input type='checkbox' className='filter__input-checkbox' />
 			<i className='filter__checkbox' style={checkboxStyle}></i>
-			<span className='filter__element-text'>{text}</span>
+			<span className='filter__element-text'>{data.text}</span>
 		</label>
 	);
 };
