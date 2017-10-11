@@ -43,9 +43,12 @@ class App extends Component {
 		}
 
 		this.setState((prevState, props) => {
-			const newCurrentFilter = prevState.currentFilter[0] === 'all' ? [s] :
+			let newCurrentFilter = prevState.currentFilter[0] === 'all' ? [s] :
 																	prevState.currentFilter.indexOf(s) === -1 ? [...prevState.currentFilter, s] :
 																	prevState.currentFilter.filter(f => f !== s);
+			if(newCurrentFilter.length === 0) {
+				return;
+			}
 			return {
 				currentFilter: newCurrentFilter,
 				tickets: props.data.tickets.filter(ticket => {
