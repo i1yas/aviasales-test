@@ -3,7 +3,7 @@ import FilterElement from './FilterElement';
 import '../css/Filter.css';
 import { formatStopWord } from '../utils/ticketFormatters';
 
-const Filter = (props) => {
+const Filter = ({ filterList }) => {
 	const elements = [];
 	for(let i = 0; i < 3; i++) {
 		elements.push({
@@ -20,7 +20,11 @@ const Filter = (props) => {
 	return (
 		<div className='filter'>
 			{elements.map((el, ind) =>
-				<FilterElement data={el} key={ind} />
+				<FilterElement
+					data={el}
+					key={ind}
+					filterList={filterList}
+				/>
 			)}
 		</div>
 	)
