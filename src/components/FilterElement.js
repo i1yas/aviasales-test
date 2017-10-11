@@ -6,17 +6,26 @@ const checkboxStyle = {
 }
 
 const FilterElement = ({ data, ind, filterList, checked }) => {
-	const handleClick = data => {
+	const handleLabelClick = data => {
 		filterList(data.key);
+	}
+	const handleInputClick = event => {
+		event.stopPropagation();
 	}
 
 	return (
 		<label
 			key={ind}
 			className='filter__element'
-			onClick={handleClick.bind(this, data)}
+			onClick={handleLabelClick.bind(this, data)}
 		>
-			<input type='checkbox' className='filter__input-checkbox' checked={checked} />
+			<input
+				type='checkbox'
+				className='filter__input-checkbox'
+				checked={checked}
+				onClick={handleInputClick}
+				onChange={e => !e.target.value}
+			/>
 			<i className='filter__checkbox' style={checkboxStyle}></i>
 			<span className='filter__element-text'>{data.text}</span>
 		</label>

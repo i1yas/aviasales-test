@@ -17,6 +17,10 @@ const Filter = ({ filterList, currentFilter }) => {
 		key: 'all'
 	});
 
+	const checked = (el) => {
+		return currentFilter.indexOf(el.key) !== -1;
+	}
+
 	return (
 		<div className='filter'>
 			{elements.map((el, ind) =>
@@ -24,7 +28,7 @@ const Filter = ({ filterList, currentFilter }) => {
 					data={el}
 					key={ind}
 					filterList={filterList}
-					checked={el.key === currentFilter}
+					checked={checked(el)}
 				/>
 			)}
 		</div>

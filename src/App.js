@@ -28,7 +28,7 @@ class App extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			currentFilter: 'all',
+			currentFilter: ['all'],
 			tickets: props.data.tickets
 		}
 	}
@@ -36,17 +36,24 @@ class App extends Component {
 	filter(s) {
 		if(s === 'all') {
 			this.setState({
-				currentFilter: 'all',
+				currentFilter: ['all'],
 				tickets: this.props.data.tickets
 			})
-		} else {
-			this.setState((prevState, props) => {
-				return {
-					currentFilter: s,
-					tickets: props.data.tickets.filter(ticket => ticket.stops === s)
-				};
-			});
+			return;
 		}
+
+		this.setState((prevState, props) => {
+			const newCurrentFilter = prevState.currentFilter[0] === 'all' ? [s] :
+																	prevState.currentFilter.indexOf(s) === -1 ? [...prevState.currentFilter, s] :
+																	prevState.currentFilter.filter(f => f !== s);
+			return {
+				currentFilter: newCurrentFilter,
+				tickets: props.data.tickets.filter(ticket => {
+						return newCurrentFilter.indexOf(ticket.stops) !== -1;
+					}
+				)
+			};
+		});
 	}
 
 	render() {
