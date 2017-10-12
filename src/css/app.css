@@ -16,6 +16,14 @@ body {
   font-size: 12px;
 }
 
+
+input {
+	font-family: 'OpenSans', sans-serif;
+}
+button {
+	font-family: 'OpenSans', sans-serif;
+}
+
 .App {
   margin: 0 auto;
   width: 820px;

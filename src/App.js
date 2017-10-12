@@ -33,13 +33,20 @@ class App extends Component {
 		}
 	}
 
-	filter(s) {
+	filter(s, onlyGivenKey) {
 		if(s === 'all') {
 			this.setState({
 				currentFilter: ['all'],
 				tickets: this.props.data.tickets
 			})
 			return;
+		}
+
+		if(onlyGivenKey) {
+			this.setState({
+				currentFilter: [s],
+				tickets: this.props.data.tickets.filter(ticket => ticket.stops === s)
+			})
 		}
 
 		this.setState((prevState, props) => {

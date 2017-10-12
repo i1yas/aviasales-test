@@ -12,6 +12,10 @@ const FilterElement = ({ data, ind, filterList, checked }) => {
 	const handleInputClick = event => {
 		event.stopPropagation();
 	}
+	const handleButtonClick = event => {
+		filterList(data.key, true)
+		event.stopPropagation();
+	}
 
 	return (
 		<label
@@ -28,6 +32,12 @@ const FilterElement = ({ data, ind, filterList, checked }) => {
 			/>
 			<i className='filter__checkbox' style={checkboxStyle}></i>
 			<span className='filter__element-text'>{data.text}</span>
+			<button
+				className='filter__element-only-button'
+				onClick={handleButtonClick}
+			>
+				Только
+			</button>
 		</label>
 	);
 };

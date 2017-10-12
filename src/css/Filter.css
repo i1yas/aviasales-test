@@ -34,3 +34,19 @@
 .filter__element-text {
 	vertical-align: middle;
 }
+
+.filter__input-checkbox:checked:hover ~ button {
+	display: block;
+}
+.filter__element-only-button {
+	display: none;
+	float: right;
+	vertical-align: middle;
+	background: none;
+	border: none;
+	text-transform: uppercase;
+	font-weight: bold;
+	font-size: 10px;
+	color: #3e9ce8;
+	letter-spacing: 0.5px;
+}
